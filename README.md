@@ -101,6 +101,14 @@ Attribution: likely_human
 Signals: llm=0.15, stylometric=0.17, transition=0.25
 ```
 
+**Uncertain (confidence: 0.43)**
+```
+Text: "Remote work has changed how teams collaborate. Additionally, many companies are adopting hybrid models..."
+Attribution: uncertain
+Signals: llm=0.40, stylometric=0.17, transition=0.90
+Label: "We could not confidently determine whether this content is human-written or AI-generated..."
+```
+
 ## Transparency Labels
 
 Exact text displayed to readers:
@@ -189,7 +197,9 @@ Visit **http://127.0.0.1:5000/dashboard** for:
 `POST /submit` accepts `content_type`:
 - `text` (default) — standard text analysis
 - `image_description` — alt-text / image description analyzed as text
-- `metadata` — JSON object with `title`, `bio`, `tags`, `description` serialized and analyzed
+- `metadata` — JSON object with `title`, `bio`, `tags`, `description` serialized into a single string
+
+For `image_description` and `metadata`, the normalizer produces a text string that runs through the **same three-signal pipeline** (Groq LLM, stylometrics, transition phrases) as standard text submissions.
 
 ```bash
 curl -X POST http://127.0.0.1:5000/submit \

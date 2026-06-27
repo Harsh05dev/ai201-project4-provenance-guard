@@ -243,6 +243,8 @@ def appeal():
         "creator_id": content["creator_id"],
         "timestamp": timestamp,
         "event": "appeal_filed",
+        "attribution": content["attribution"],
+        "confidence": content["confidence"],
         "original_attribution": content["attribution"],
         "original_confidence": content["confidence"],
         "appeal_reasoning": creator_reasoning,

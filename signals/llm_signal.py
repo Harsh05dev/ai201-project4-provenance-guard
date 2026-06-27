@@ -14,7 +14,7 @@ PROMPT = """You are an expert at distinguishing human-written text from AI-gener
 Analyze the following text and estimate the probability it was AI-generated.
 
 Respond with ONLY valid JSON in this exact format:
-{"ai_likelihood": 0.75, "reasoning": "brief explanation"}
+{{"ai_likelihood": 0.75, "reasoning": "brief explanation"}}
 
 ai_likelihood must be a float between 0.0 (definitely human) and 1.0 (definitely AI).
 
